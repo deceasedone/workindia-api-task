@@ -7,7 +7,7 @@ A simple train booking API built with Node.js, Express, and PostgreSQL.
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
+   git clone https://github.com/deceasedone/workindia-api-task.git
    cd your-repo
    ```
 
@@ -50,9 +50,36 @@ npm start
 
 ## Testing (Optional)
 
-Run tests (if implemented):  
+Run tests :  
 ```bash
-npm test
+Testing with Postman
+
+    Register a user (POST /api/register)
+
+{ "name": "123", "email": "123@gmail.com", "password": "password" }
+
+Login & Get Token (POST /api/login)
+
+{ "email": "123@gmail.com", "password": "password" }
+
+Response: { "token": "your_jwt_token" }
+
+Add a Train (Admin Only) (POST /api/trains)
+
+    Header: x-api-key: your_admin_key
+    Body:
+
+    { "name": "Express", "source_station_id": 1, "destination_station_id": 2, "total_seats": 100 }
+
+Check Seat Availability (GET /api/trains/availability?source=1&destination=2)
+
+Book a Seat (User Only) (POST /api/bookings)
+
+    Header: Authorization: Bearer your_jwt_token
+    Body: { "train_id": 1 }
+
+Get Booking Details (GET /api/bookings/{booking_id})
+
 ```
 Tech Stack Used:
 - **Backend:** Node.js, Express.js  
